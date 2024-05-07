@@ -2,8 +2,6 @@
   config,
   pkgs,
   outputs,
-  inputs,
-  lib,
   unstable,
   ...
 }: {

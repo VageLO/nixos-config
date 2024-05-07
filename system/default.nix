@@ -45,7 +45,7 @@
     desktopManager = {
       xterm.enable = false;
     };
-   
+  
     displayManager = {
         defaultSession = "none+i3";
     };
@@ -59,8 +59,6 @@
     };
   };
  
-  sound.enable = true;
-
   users.users.vagelo = {
     isNormalUser = true;
     description = "vagelo";
