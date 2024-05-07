@@ -68,7 +68,7 @@
 
   environment.systemPackages = with pkgs; [
     neovim
-		git
+    git
     lazygit
     gcc
     unstable.alacritty
