@@ -37,7 +37,7 @@
     LC_TIME = "et_EE.UTF-8";
   };
 
-	# Configure i3wm
+  # Configure i3wm
   services.xserver = {
     layout = "us";
     xkbVariant = "";
@@ -46,7 +46,7 @@
     desktopManager = {
       xterm.enable = false;
     };
-  
+ 
     displayManager = {
         defaultSession = "none+i3";
     };
