@@ -41,7 +41,7 @@
         vagelo = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {inherit unstable inputs outputs;};
-          modules = [ ./default.nix ];
+          modules = [ ./configuration.nix ];
         };
       };
     };
