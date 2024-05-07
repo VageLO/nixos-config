@@ -1,4 +1,4 @@
-{ 
+{
   config,
   pkgs,
   outputs,
@@ -28,11 +28,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    neovim
-		git
-    lazygit
-    gcc
-    unstable.alacritty
+    unstable.obsidian
+    unstable.mmex
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -23,8 +23,17 @@
     let
       inherit (self) outputs;
       system = "x86_64-linux";
-      pkgs = import nixpkgs {inherit system;};
-      unstable = import nixpkgs-unstable {inherit system;};
+
+      pkgs = import nixpkgs {
+        config = { allowUnfree = true; };
+        inherit system;
+      };
+
+      unstable = import nixpkgs-unstable {
+        config = { allowUnfree = true; };
+        inherit system;
+      };
+
       lib = nixpkgs.lib;
     in {
 
@@ -32,7 +41,8 @@
 
       nixosConfigurations = {
         nixos = lib.nixosSystem {
-          specialArgs = {inherit inputs outputs;};
+          inherit pkgs;
+          specialArgs = {inherit unstable inputs outputs;};
           modules = [ ./system ];
         };
       };
@@ -41,7 +51,7 @@
         vagelo = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {inherit unstable inputs outputs;};
-          modules = [ ./configuration.nix ];
+          modules = [ ./home.nix ];
         };
       };
     };

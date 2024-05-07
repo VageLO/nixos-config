@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unstable,
   ...
 }: {
   imports = [
@@ -63,10 +64,15 @@
     isNormalUser = true;
     description = "vagelo";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    ];
   };
+
+  environment.systemPackages = with pkgs; [
+    neovim
+		git
+    lazygit
+    gcc
+    unstable.alacritty
+  ];
 
   # Fonts
   fonts = {
