@@ -9,6 +9,7 @@
   imports = [
     #outputs.homeManagerModules.nvim
     outputs.homeManagerModules.bash
+    outputs.homeManagerModules.git
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
