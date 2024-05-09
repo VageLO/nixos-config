@@ -38,27 +38,27 @@
   home.file = {
     ".config/nvim" = {
       recursive = true;
-      source = ../dotfiles/nvim;
+      source = ./dotfiles/nvim;
     };
     ".config/alacritty" = {
       recursive = true;
-      source = ../dotfiles/alacritty;
+      source = ./dotfiles/alacritty;
     };
     ".config/i3" = {
       recursive = true;
-      source = ../dotfiles/i3;
+      source = ./dotfiles/i3;
     };
     ".config/i3status" = {
       recursive = true;
-      source = ../dotfiles/i3status;
+      source = ./dotfiles/i3status;
     };
     ".config/lazygit" = {
       recursive = true;
-      source = ../dotfiles/lazygit;
+      source = ./dotfiles/lazygit;
     };
     ".config/tmux" = {
       recursive = true;
-      source = ../dotfiles/tmux;
+      source =  ./dotfiles/nvim;
     };
   };
 
