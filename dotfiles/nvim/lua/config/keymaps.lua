@@ -9,7 +9,7 @@ harpoon:setup()
 -- REQUIRED
 
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Add to harpoon" })
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle quick menu" })
+vim.keymap.set("n", "<leader>t", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle quick menu" })
 
 vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Go to 1 harpoon" })
 vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end, { desc = "Go to 2 harpoon" })
