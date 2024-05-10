@@ -8,6 +8,7 @@
       ".." = "cd ..";
       lg = "lazygit";
       ll = "ls -la";
+      hm = "home-manager";
     };
   };
 }
