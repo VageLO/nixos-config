@@ -17,9 +17,6 @@
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  # To enable the docker daemon on NixOS
-  virtualisation.docker.enable = true;
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -28,6 +25,7 @@
     kubernetes
     docker
     lazydocker
+    google-chrome
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
