@@ -56,8 +56,9 @@
 
   # Configure i3wm
   services.xserver = {
-    layout = "us";
+    layout = "us,ru";
     xkbVariant = "";
+    xkbOptions = "grp:ctrl_shift_toggle";
     enable = true;
 
     desktopManager = {
