@@ -22,6 +22,9 @@
   home.packages = with pkgs; [
     unstable.obsidian
     unstable.mmex
+    keepassxc
+    mpv-unwrapped
+    anki-bin
     kubernetes
     docker
     lazydocker
@@ -53,7 +56,7 @@
     };
     ".config/tmux" = {
       recursive = true;
-      source =  ./dotfiles/nvim;
+      source =  ./dotfiles/tmux;
     };
   };
 

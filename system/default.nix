@@ -10,6 +10,15 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  sound.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   virtualisation.docker = {
     enable = true;
     rootless = {
@@ -71,7 +80,7 @@
   users.users.vagelo = {
     isNormalUser = true;
     description = "vagelo";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -80,6 +89,7 @@
     lazygit
     gcc
     unstable.alacritty
+    tmux
   ];
 
   # Fonts
