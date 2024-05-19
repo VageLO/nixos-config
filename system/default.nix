@@ -89,6 +89,7 @@
     git
     lazygit
     gcc
+    gnumake
     unstable.alacritty
     tmux
   ];

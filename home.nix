@@ -28,8 +28,11 @@
     kubernetes
     docker
     lazydocker
+    go
     google-chrome
     telegram-desktop
+    zip
+    unzip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -64,6 +67,11 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
