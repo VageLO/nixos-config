@@ -23,9 +23,3 @@ vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end, { desc = "Go 
 vim.keymap.set("n", "<leader>fs", "<cmd>Telescope symbols<cr>", { desc = "Find Symbols" })
 
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "Lazy Git" })
-
--- Vim panels navigation
--- vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
--- vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
--- vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
--- vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
