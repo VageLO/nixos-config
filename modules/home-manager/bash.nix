@@ -7,8 +7,9 @@
       v = "nvim";
       ".." = "cd ..";
       lg = "lazygit";
-      ll = "ls -la";
-      ls = "ls -l";
+      la = "ls -la";
+      ll = "ls -l";
+      cl = "clear";
     };
   };
 }
