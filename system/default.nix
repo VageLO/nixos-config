@@ -10,7 +10,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  sound.enable = false;
+  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -109,5 +109,5 @@
     };
   };
 
- system.stateVersion = "23.11"; # Did you read the comment?
+ system.stateVersion = "24.05"; # Did you read the comment?
 }
