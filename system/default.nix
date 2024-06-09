@@ -55,27 +55,29 @@
   };
 
   # Configure i3wm
-  services.xserver = {
-    layout = "us,ru";
-    xkbVariant = "";
-    xkbOptions = "grp:ctrl_shift_toggle";
-    enable = true;
-
-    desktopManager = {
-      xterm.enable = false;
-    };
- 
-    displayManager = {
+  services.displayManager = {
         defaultSession = "none+i3";
-    };
+  };
 
-    windowManager.i3 = {
+  services.xserver = {
+      xkb = {
+          layout = "us,ru";
+          variant = "";
+          options = "grp:ctrl_shift_toggle";
+      };
       enable = true;
-      extraPackages = with pkgs; [
-        rofi
-        i3status
-     ];
-    };
+
+      desktopManager = {
+          xterm.enable = false;
+      };
+
+      windowManager.i3 = {
+          enable = true;
+          extraPackages = with pkgs; [
+              rofi
+                  i3status
+          ];
+      };
   };
  
   users.users.vagelo = {
