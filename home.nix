@@ -73,7 +73,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    DOTFILES = "$HOME/home-manager/dotfiles";
+    DOTFILES = "$HOME/home-manager";
   };
 
   home.sessionPath = [

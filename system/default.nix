@@ -64,7 +64,7 @@
       xkb = {
           layout = "us,ru";
           variant = "";
-          options = "grp:ctrl_shift_toggle";
+          options = "grp:ctrl_alt_toggle";
       };
       enable = true;
 
@@ -88,7 +88,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
+    unstable.neovim
     git
     lazygit
     gcc
