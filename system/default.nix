@@ -20,13 +20,13 @@
     jack.enable = true;
   };
 
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
+  # virtualisation.docker = {
+  #   enable = true;
+  #   rootless = {
+  #     enable = true;
+  #     setSocketVariable = true;
+  #   };
+  # };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -79,6 +79,12 @@
                   i3status
           ];
       };
+      xrandrHeads = [
+          {
+            output = "HDMI-1";
+            primary = true;
+          }
+      ]; 
   };
  
   users.users.vagelo = {
@@ -95,6 +101,7 @@
     gnumake
     unstable.alacritty
     tmux
+    ripgrep
   ];
 
   # Fonts
