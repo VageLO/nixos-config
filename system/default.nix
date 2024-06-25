@@ -94,12 +94,12 @@
   };
 
   environment.systemPackages = with pkgs; [
-    unstable.neovim
+    neovim
     git
     lazygit
     gcc
     gnumake
-    unstable.alacritty
+    alacritty
     tmux
     ripgrep
   ];
