@@ -1,25 +1,16 @@
 {
-  description = "Home Manager configuration of vagelo";
+  description = "NixOS configuration";
 
   inputs = {
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs = { 
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    ... 
-  } @inputs:
+  outputs = {self, nixpkgs, ...}@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -28,30 +19,32 @@
         config = { allowUnfree = true; };
         inherit system;
       };
-
-      unstable = import nixpkgs-unstable {
-        config = { allowUnfree = true; };
-        inherit system;
-      };
-
-      lib = nixpkgs.lib;
     in {
 
-      homeManagerModules = import ./modules/home-manager;
-
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
-          inherit pkgs;
-          specialArgs = {inherit unstable inputs outputs;};
-          modules = [ ./system ];
+        nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+            inherit pkgs;
+          };
+          modules = [
+            ./hosts/laptop/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.vagelo = import ./hosts/laptop/home.nix;
+            }
+          ];
         };
       };
 
       homeConfigurations = {
-        vagelo = home-manager.lib.homeManagerConfiguration {
+        "vagelo@lp" = inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = {inherit unstable inputs outputs;};
-          modules = [ ./home.nix ];
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/laptop/home.nix ];
         };
       };
     };

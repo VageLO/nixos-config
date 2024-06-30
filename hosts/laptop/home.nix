@@ -1,15 +1,7 @@
+{ pkgs, config, ... }:
 {
-  config,
-  pkgs,
-  outputs,
-  unstable,
-  ...
-}: {
-
   imports = [
-    #outputs.homeManagerModules.nvim
-    outputs.homeManagerModules.bash
-    outputs.homeManagerModules.git
+    ../../modules/shell
   ];
 
   home.username = "vagelo";
@@ -17,14 +9,18 @@
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
+  programs.git = {
+    enable = true;
+    userName  = "VageLO";
+    userEmail = "48802151+VageLO@users.noreply.github.com";
+  };
+
   home.packages = with pkgs; [
     sqlitebrowser
     lua-language-server
     wget
     xclip
-    unstable.obsidian
+    obsidian
     keepassxc
     mpv-unwrapped
     anki-bin
@@ -38,8 +34,6 @@
     unzip
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     ".config/nvim" = {
       recursive = true;
@@ -80,6 +74,5 @@
     "$HOME/.local/bin"
   ];
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

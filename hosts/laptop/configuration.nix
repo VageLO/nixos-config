@@ -1,12 +1,7 @@
-{
-  config,
-  pkgs,
-  unstable,
-  ...
-}: {
+{ config, pkgs, ... }: {
   imports = [
-      ./hardware-configuration.nix
-    ];
+    ./hardware-configuration.nix
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -19,14 +14,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-
-  # virtualisation.docker = {
-  #   enable = true;
-  #   rootless = {
-  #     enable = true;
-  #     setSocketVariable = true;
-  #   };
-  # };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -57,36 +44,36 @@
 
   # Configure i3wm
   services.displayManager = {
-        defaultSession = "none+i3";
+    defaultSession = "none+i3";
   };
 
   services.xserver = {
-      xkb = {
-          layout = "us,ru";
-          variant = "";
-          options = "grp:ctrl_alt_toggle";
-      };
+    xkb = {
+      layout = "us,ru";
+      variant = "";
+      options = "grp:ctrl_alt_toggle";
+    };
+    enable = true;
+
+    desktopManager = {
+      xterm.enable = false;
+    };
+
+    windowManager.i3 = {
       enable = true;
-
-      desktopManager = {
-          xterm.enable = false;
-      };
-
-      windowManager.i3 = {
-          enable = true;
-          extraPackages = with pkgs; [
-              rofi
-                  i3status
-          ];
-      };
-      xrandrHeads = [
-          {
-            output = "HDMI-1";
-            primary = true;
-          }
-      ]; 
+      extraPackages = with pkgs; [
+        rofi
+          i3status
+      ];
+    };
+    xrandrHeads = [
+    {
+      output = "HDMI-1";
+      primary = true;
+    }
+    ]; 
   };
- 
+
   users.users.vagelo = {
     isNormalUser = true;
     description = "vagelo";
@@ -119,5 +106,5 @@
     };
   };
 
- system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
