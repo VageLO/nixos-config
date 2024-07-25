@@ -32,6 +32,10 @@
     telegram-desktop
     zip
     unzip
+    curl
+    kitty
+    yazi
+    cargo
   ];
 
   home.file = {
@@ -42,6 +46,10 @@
     ".config/alacritty" = {
       recursive = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/alacritty";
+    };
+    ".config/kitty" = {
+      recursive = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/kitty";
     };
     ".config/i3" = {
       recursive = true;
@@ -68,6 +76,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     DOTFILES = "$HOME/home-manager";
+    TERM = "xterm-kitty";
   };
 
   home.sessionPath = [

@@ -10,6 +10,7 @@
       la = "ls -la";
       ll = "ls -l";
       cl = "clear";
+      ya = "yazi";
     };
   };
 }
