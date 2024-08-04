@@ -6,7 +6,7 @@
         ".config/mpv" = {
             source = pkgs.fetchgit {
                 url = "https://github.com/VageLO/mpv2anki";
-                hash = "sha256-APUS8Q+MrV1NtO0kJqg1V576nT3l9py+aVDLvF/r+do=";
+                hash = "sha256-AQhjo8J4q+31WUZUD2jU6XH4JIvUyCndjWl9+kaWn3Q=";
             };
             recursive = true;
         };
