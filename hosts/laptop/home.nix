@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   imports = [
-    ../../modules/shell
+    ../../modules
   ];
 
   home.username = "vagelo";
@@ -16,17 +16,15 @@
   };
 
   home.packages = with pkgs; [
+    deluge
     sqlitebrowser
     lua-language-server
     wget
     xclip
     obsidian
     keepassxc
-    mpv-unwrapped
+    mpv
     anki-bin
-    kubernetes
-    docker
-    lazydocker
     go
     google-chrome
     telegram-desktop
@@ -36,6 +34,7 @@
     kitty
     yazi
     cargo
+    pkg-config
   ];
 
   home.file = {
