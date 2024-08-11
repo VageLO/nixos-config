@@ -35,6 +35,9 @@
     yazi
     cargo
     pkg-config
+    gtk3
+    wxGTK32
+    scrot
   ];
 
   home.file = {

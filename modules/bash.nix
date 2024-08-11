@@ -11,6 +11,8 @@
       ll = "ls -l";
       cl = "clear";
       ya = "yazi";
+      hm = "home-manager switch --flake ~/home-manager/#vagelo@lp";
+      nm = "sudo nixos-rebuild switch --flake ~/home-manager/";
     };
   };
 }
