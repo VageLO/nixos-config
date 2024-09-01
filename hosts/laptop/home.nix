@@ -38,6 +38,7 @@
     gtk3
     wxGTK32
     scrot
+    nnn
   ];
 
   home.file = {

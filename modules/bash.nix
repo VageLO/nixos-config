@@ -7,8 +7,7 @@
       v = "nvim";
       ".." = "cd ..";
       lg = "lazygit";
-      la = "ls -la";
-      ll = "ls -l";
+      ll = "nnn";
       cl = "clear";
       ya = "yazi";
       hm = "home-manager switch --flake ~/home-manager/#vagelo@lp";
