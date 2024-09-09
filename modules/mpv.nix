@@ -6,7 +6,7 @@
         ".config/mpv" = {
             source = pkgs.fetchgit {
                 url = "https://github.com/VageLO/mpv2anki";
-                hash = "sha256-AQhjo8J4q+31WUZUD2jU6XH4JIvUyCndjWl9+kaWn3Q=";
+                hash = "sha256-tTss8yN18uGvoy1jWOfHCHh79sAv9MOlbq66YMd9aCA=";
             };
             recursive = true;
         };
@@ -18,6 +18,14 @@
             executable = false;
         };
     };
+
+    #home.file = {
+    #    ".config/mpv" = {
+    #        recursive = true;
+    #        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/app/mpv2anki";
+    #    };
+    #};
+
     home.packages = with pkgs; [
         ffmpeg_7
         (python3.withPackages (ps: with ps; [
