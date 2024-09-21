@@ -5,7 +5,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

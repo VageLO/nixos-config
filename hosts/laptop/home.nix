@@ -42,10 +42,6 @@
   ];
 
   home.file = {
-    ".config/nvim" = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/nvim";
-    };
     ".config/alacritty" = {
       recursive = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/alacritty";

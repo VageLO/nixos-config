@@ -3,5 +3,6 @@
   imports = [
     ./bash.nix
     ./mpv.nix
+    ./nvim
   ];
 }
