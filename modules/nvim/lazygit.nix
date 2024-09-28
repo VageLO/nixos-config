@@ -1,14 +1,14 @@
 {
-    programs.nixvim = {
-        plugins.lazygit.enable = true;
+  programs.nixvim = {
+    plugins.lazygit.enable = true;
 
-        keymaps = [
-            {
-                key = "<leader>lg";
-                mode = "n";
-                action = "<CMD>LazyGit<CR>";
-                options.desc = "Lazy Git";
-            }
-        ];
-    };
+    keymaps = [
+      {
+        key = "<leader>lg";
+        mode = "n";
+        action = "<CMD>LazyGit<CR>";
+        options.desc = "Lazy Git";
+      }
+    ];
+  };
 }

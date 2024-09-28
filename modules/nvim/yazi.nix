@@ -11,8 +11,8 @@
         keymaps = [
             {
                 mode = "n";
-                key = "<leader>y";
-                action = "<cmd>Yazi<CR>";
+                key = "<leader>e";
+                action = "<cmd>Yazi toggle<CR>";
                 options = {
                     silent = true;
                     desc = "Yazi";
