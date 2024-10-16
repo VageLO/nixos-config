@@ -4,6 +4,7 @@
     ./bash.nix
     ./mpv.nix
     ./mmex.nix
+    ./yazi.nix
     ./nvim
   ];
 }

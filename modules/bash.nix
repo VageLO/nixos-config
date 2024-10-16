@@ -7,11 +7,11 @@
       v = "nvim";
       ".." = "cd ..";
       lg = "lazygit";
-      ll = "nnn";
       cl = "clear";
-      ya = "yazi";
-      hm = "home-manager switch --flake ~/home-manager/#vagelo@lp";
-      nm = "sudo nixos-rebuild switch --flake ~/home-manager/";
+      ll = "yazi";
+      sd = "cd $DOTFILES";
+      hm = "home-manager switch --flake $DOTFILES/#vagelo@lp";
+      nm = "sudo nixos-rebuild switch --flake $DOTFILES";
     };
   };
 }

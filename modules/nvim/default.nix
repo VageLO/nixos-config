@@ -13,6 +13,7 @@
     ./undotree.nix
     ./yazi.nix
     ./lsp.nix
+    ./markview.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
 
@@ -24,7 +25,7 @@
     };
 
     luaLoader.enable = true;
-    clipboard.providers.wl-copy.enable = true;
+    clipboard.providers.xclip.enable = true;
 
     plugins = {
       lualine.enable = true;
@@ -43,5 +44,20 @@
       expandtab = true;
       guicursor = "n-v-i-c:block-Cursor";
     };
+
+    keymaps = [
+      {
+        key = "<leader>y";
+        mode = [ "v" ];
+        action = "\"+y";
+      }
+      {
+        key = "<leader>y";
+        mode = [ "n" ];
+        action = "\"+yy";
+      }
+    ];
+
   };
 }
+

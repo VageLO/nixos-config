@@ -11,11 +11,14 @@
 
   programs.git = {
     enable = true;
-    userName  = "VageLO";
+    userName = "VageLO";
     userEmail = "48802151+VageLO@users.noreply.github.com";
   };
 
   home.packages = with pkgs; [
+    gimp
+    zathura
+    discord
     deluge
     sqlitebrowser
     lua-language-server
@@ -38,7 +41,6 @@
     gtk3
     wxGTK32
     scrot
-    nnn
   ];
 
   home.file = {

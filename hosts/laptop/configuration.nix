@@ -10,13 +10,12 @@
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable = true;
     jack.enable = true;
   };
 
   # Bluetooth
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true; 
+  hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
   # Bootloader.
@@ -67,15 +66,15 @@
       enable = true;
       extraPackages = with pkgs; [
         rofi
-          i3status
+        i3status
       ];
     };
     xrandrHeads = [
-    {
-      output = "HDMI-1";
-      primary = true;
-    }
-    ]; 
+      {
+        output = "HDMI-1";
+        primary = true;
+      }
+    ];
   };
 
   users.users.vagelo = {
@@ -99,7 +98,7 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      (nerdfonts.override {fonts = [ "UbuntuMono" ]; })
+      (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
     ];
     fontconfig = {
       defaultFonts = {
