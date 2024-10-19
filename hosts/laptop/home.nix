@@ -52,14 +52,6 @@
       recursive = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/kitty";
     };
-    ".config/i3" = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/i3";
-    };
-    ".config/i3status" = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/i3status";
-    };
     ".config/lazygit" = {
       recursive = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/lazygit";
