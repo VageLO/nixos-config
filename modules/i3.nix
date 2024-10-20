@@ -12,9 +12,9 @@ in
       floating.modifier = mod;
       workspaceLayout = "tabbed";
 
-      colors = {
-        background = "#000000";
-      };
+      startup = [
+        { command = "--no-startup-id xsetroot -solid '#000000'"; always = true; notification = false; }
+      ];
 
       fonts = {
         names = [ "Monospace" ];
@@ -55,6 +55,19 @@ in
         };
       };
 
+      workspaceOutputAssign = [
+        { workspace="1"; output="primary"; }
+        { workspace="2"; output="primary"; }
+        { workspace="3"; output="primary"; }
+        { workspace="4"; output="primary"; } 
+        { workspace="5"; output="primary"; } 
+        { workspace="6"; output="primary"; } 
+        { workspace="7"; output="primary"; } 
+        { workspace="8"; output="primary"; } 
+        { workspace="9"; output="eDP-1"; } 
+        { workspace="10"; output="eDP-1"; } 
+      ];
+
       assigns = {
         "3" = [
           { class = "obsidian"; }
@@ -66,7 +79,7 @@ in
       keybindings = lib.mkDefault {
 
         # start rofi(a program launcher)
-        "${mod}+d" = "exec rofi -modi drun -show drun";
+        "${mod}+d" = "exec --no-startup-id rofi -modi drun -show drun";
 
         # start a terminal
         "${mod}+Return" = "exec kitty -e tmux";
@@ -150,7 +163,7 @@ in
         "${mod}+Shift+r" = "restart";
 
         # exit i3 (logs you out of your X session)
-        "${mod}+Shift+e" = "exec i3-msg exit";
+        "${mod}+Shift+e" = "exec i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'";
         
         # resize window (you can also use the mouse for that)
         "${mod}+r" = "mode resize";
