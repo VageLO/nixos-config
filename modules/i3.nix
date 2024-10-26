@@ -71,8 +71,6 @@ in
       assigns = {
         "3" = [
           { class = "obsidian"; }
-          { class = "mpv"; }
-          { class = "anki"; }
         ];
       };
 
