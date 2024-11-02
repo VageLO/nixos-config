@@ -30,6 +30,7 @@
     plugins = {
       lualine.enable = true;
       nix.enable = true;
+      web-devicons.enable = true;
     };
 
     opts = {

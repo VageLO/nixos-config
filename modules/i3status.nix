@@ -12,9 +12,20 @@
 
     modules = {
       "tztime local" = {
-        position = 6;
+        position = 7;
         settings = {
           format = "%Y-%m-%d %H:%M";
+        };
+      };
+
+      "volume master" = {
+        position = 6;
+        settings = {
+          format = "♪ %volume";
+          format_muted = "♪ muted (%volume)";
+          device = "default";
+          mixer = "Master";
+          mixer_idx = 0;
         };
       };
 

@@ -4,10 +4,10 @@
       enable = true;
 
       servers = {
-        lua-ls.enable = true;
+        lua_ls.enable = true;
         gopls.enable = true;
         pyright.enable = true;
-        nil-ls.enable = true;
+        nil_ls.enable = true;
       };
 
       keymaps = {

@@ -1,4 +1,3 @@
-{ inputs, pkgs, config, ... }:
 {
   imports = [
     ./bash.nix
@@ -8,6 +7,7 @@
     ./i3.nix
     ./i3status.nix
     ./lazygit.nix
+    ./aspell.nix
     ./nvim
   ];
 }
