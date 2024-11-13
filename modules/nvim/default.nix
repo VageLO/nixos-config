@@ -14,6 +14,7 @@
     ./yazi.nix
     ./lsp.nix
     ./markview.nix
+    ./ibl.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
 
