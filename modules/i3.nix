@@ -68,12 +68,6 @@ in
         { workspace="10"; output="eDP-1"; } 
       ];
 
-      assigns = {
-        "3" = [
-          { class = "obsidian"; }
-        ];
-      };
-
       keybindings = lib.mkDefault {
 
         # start rofi(a program launcher)

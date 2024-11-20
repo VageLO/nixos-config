@@ -8,6 +8,7 @@
     ./i3status.nix
     ./lazygit.nix
     ./aspell.nix
+    ./anki-service.nix
     ./nvim
   ];
 }
