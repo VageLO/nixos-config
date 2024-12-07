@@ -16,6 +16,7 @@
   };
 
   home.packages = with pkgs; [
+    insomnia
     gimp
     zathura
     discord

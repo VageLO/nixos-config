@@ -13,6 +13,8 @@
     jack.enable = true;
   };
 
+  services.usbmuxd.enable = true;
+
   # Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -84,6 +86,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    libimobiledevice
+    ifuse
     neovim
     git
     lazygit
