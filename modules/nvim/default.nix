@@ -13,6 +13,8 @@
     ./undotree.nix
     ./yazi.nix
     ./lsp.nix
+    ./blink.nix
+    ./blink-compat.nix
     ./markview.nix
     ./ibl.nix
     inputs.nixvim.homeManagerModules.nixvim

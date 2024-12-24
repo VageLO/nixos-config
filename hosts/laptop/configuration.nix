@@ -15,6 +15,17 @@
 
   services.usbmuxd.enable = true;
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+    daemon.settings = {
+      data-root = "/home/vagelo/docker";
+    };
+  };
+
   # Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -86,6 +97,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    docker
+    docker-compose
     libimobiledevice
     ifuse
     neovim
@@ -102,7 +115,7 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "UbuntuMono" ]; })
+      nerd-fonts.ubuntu-mono
     ];
     fontconfig = {
       defaultFonts = {

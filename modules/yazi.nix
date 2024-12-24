@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       manager = {
-        sort_by = "modified";
+        sort_by = "mtime";
         sort_reverse = true;
         show_hidden = true;
         linemode = "mtime";
