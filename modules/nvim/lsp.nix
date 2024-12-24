@@ -6,9 +6,9 @@
       servers = {
         lua_ls.enable = true;
         gopls.enable = true;
-        pyright.enable = true;
         nil_ls.enable = true;
         ts_ls.enable = true;
+        ruff.enable = true;
       };
 
       keymaps = {
