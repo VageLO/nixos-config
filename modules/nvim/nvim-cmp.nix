@@ -22,6 +22,7 @@
           { name = "luasnip"; }
           { name = "path"; }
           { name = "buffer"; }
+          { name = "emoji"; }
           { name = "latex_symbols"; }
         ];
 

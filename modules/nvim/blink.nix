@@ -22,46 +22,42 @@
               "lsp"
               "path"
               "luasnip"
-              "buffer"
-              "emoji"
               "spell"
+              "emoji"
               "git"
             ];
             providers = {
+              lsp = {
+                name = "lsp";
+                enable = true;
+                module = "blink.cmp.sources.lsp";
+                kind = "LSP";
+                score_offset = 1000;
+              };
               emoji = {
                 name = "emoji";
-                module = "blink.compat.source";
+                enable = true;
+                module = "cmp_emoji";
+                score_offset = 950;
               };
               git = {
                 name = "git";
+                enable = true;
                 module = "blink.compat.source";
-                score_offset = 0;
+                score_offset = 900;
               };
               spell = {
                 name = "spell";
+                enable = true;
                 module = "blink.compat.source";
-                score_offset = 0;
-              };
-            };
-          };
-
-          completion = {
-            trigger = {
-              show_in_snippet = false;
-            };
-            documentation = {
-              auto_show = true;
-            };
-            accept = {
-              auto_brackets = {
-                enabled = true;
+                score_offset = 920;
               };
             };
           };
 
           windows = {
             documentation = {
-              auto_show = false;
+              auto_show = true;
             };
           };
 

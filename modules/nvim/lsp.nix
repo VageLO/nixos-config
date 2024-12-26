@@ -9,6 +9,7 @@
         nil_ls.enable = true;
         ts_ls.enable = true;
         ruff.enable = true;
+        pyright.enable = true;
       };
 
       keymaps = {

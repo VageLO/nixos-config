@@ -16,6 +16,7 @@
   };
 
   home.packages = with pkgs; [
+    lazydocker
     uv
     nodejs
     insomnia
