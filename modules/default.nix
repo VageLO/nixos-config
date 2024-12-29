@@ -9,6 +9,8 @@
     ./lazygit.nix
     ./aspell.nix
     ./anki-service.nix
+    ./tmux.nix
+    ./kitty.nix
     ./nvim
   ];
 }
