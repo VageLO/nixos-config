@@ -7,7 +7,7 @@
   home.username = "vagelo";
   home.homeDirectory = "/home/vagelo";
 
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05"; # Please read the comment before changing.
 
   programs.git = {
     enable = true;

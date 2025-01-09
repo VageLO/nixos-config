@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, pkgs, ... }:
 
 let
    mod = "Mod1"; 
@@ -30,7 +30,15 @@ in
       bars = [
         {
           trayOutput = "primary";
-          statusCommand = "i3status";
+          statusCommand = "${pkgs.writeScript "i3status-timer-wrapper" ''
+            #!/usr/bin/env bash
+            i3status | while :
+            do
+                read line
+                TIMER_OUTPUT=$(bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh)
+                echo "$TIMER_OUTPUT | ''${line#,\[}" || exit 1
+            done
+          ''}";
           fonts = {
             size = 10.0;
           };
@@ -39,19 +47,19 @@ in
 
       modes = {
         resize = {
-              l = "resize shrink width 10 px or 10 ppt";
-              k = "resize grow height 10 px or 10 ppt";
-              j = "resize shrink height 10 px or 10 ppt";
-              h = "resize grow width 10 px or 10 ppt";
-      
-              Right = "resize shrink width 10 px or 10 ppt";
-              Up = "resize grow height 10 px or 10 ppt";
-              Down = "resize shrink height 10 px or 10 ppt";
-              Left = "resize grow width 10 px or 10 ppt";
-      
-              # back to normal: Enter or Escape or $mod+r
-              Return = "mode default";
-              Escape = "mode default";
+          l = "resize shrink width 10 px or 10 ppt";
+          k = "resize grow height 10 px or 10 ppt";
+          j = "resize shrink height 10 px or 10 ppt";
+          h = "resize grow width 10 px or 10 ppt";
+
+          Right = "resize shrink width 10 px or 10 ppt";
+          Up = "resize grow height 10 px or 10 ppt";
+          Down = "resize shrink height 10 px or 10 ppt";
+          Left = "resize grow width 10 px or 10 ppt";
+
+          # back to normal: Enter or Escape or $mod+r
+          Return = "mode default";
+          Escape = "mode default";
         };
       };
 
@@ -74,7 +82,7 @@ in
         "${mod}+d" = "exec --no-startup-id rofi -modi drun -show drun";
 
         # start a terminal
-        "${mod}+Return" = "exec kitty -e tmux";
+        "${mod}+Return" = "exec kitty -e tmux new-session";
 
         # kill focused window
         "${mod}+Shift+q" = "kill";
@@ -168,6 +176,12 @@ in
         "${mod}+Shift+F1" = "exec systemctl reboot";
         "${mod}+Shift+F2" = "exec systemctl suspend";
         "${mod}+Shift+F4" = "exec systemctl poweroff";
+
+        # pomo timer
+        "${mod}+Shift+t" = "exec bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh start";
+        "${mod}+Shift+w" = "exec bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh start 20";
+        "${mod}+Shift+b" = "exec bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh start 5";
+        "${mod}+Shift+y" = "exec bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh stop";
       };
     };
   };

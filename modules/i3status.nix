@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   programs.i3status = {
     enable = true;
@@ -7,7 +5,7 @@
 
     general = {
       colors = true;
-      interval = 10;
+      interval = 1;
     };
 
     modules = {

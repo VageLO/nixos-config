@@ -11,6 +11,14 @@
     options = "--delete-older-than 30d";
   };
 
+  # Firewall
+  networking.firewall = {
+    enable = true;
+    interfaces = {
+      "wlp4s0".allowedTCPPorts = [ 8083 ];
+    };
+  };
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
