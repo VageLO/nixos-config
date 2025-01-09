@@ -1,7 +1,8 @@
 { lib, config, pkgs, ... }:
 
 let
-   mod = "Mod1"; 
+  mod = "Mod1"; 
+  dotfiles = "${config.home.homeDirectory}/home-manager/dotfiles";
 in 
 {
   xsession.windowManager.i3 = {
@@ -35,7 +36,7 @@ in
             i3status | while :
             do
                 read line
-                TIMER_OUTPUT=$(bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh)
+                TIMER_OUTPUT=$(bash ${dotfiles}/pomo.sh)
                 echo "$TIMER_OUTPUT | ''${line#,\[}" || exit 1
             done
           ''}";
@@ -163,6 +164,7 @@ in
         "${mod}+Shift+r" = "restart";
 
         # exit i3 (logs you out of your X session)
+        # TODO: Fix
         "${mod}+Shift+e" = "exec i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'";
         
         # resize window (you can also use the mouse for that)
@@ -177,11 +179,13 @@ in
         "${mod}+Shift+F2" = "exec systemctl suspend";
         "${mod}+Shift+F4" = "exec systemctl poweroff";
 
-        # pomo timer
-        "${mod}+Shift+t" = "exec bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh start";
-        "${mod}+Shift+w" = "exec bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh start 20";
-        "${mod}+Shift+b" = "exec bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh start 5";
-        "${mod}+Shift+y" = "exec bash ${config.home.homeDirectory}/home-manager/dotfiles/pomo.sh stop";
+        # pomo - 25min
+        "${mod}+Shift+t" = "exec bash ${dotfiles}/pomo.sh -a start -s ${dotfiles}/pomo-gong.mp3";
+        # workout - 20min
+        "${mod}+Shift+w" = "exec bash ${dotfiles}/pomo.sh -a start -d 1200 -n false -s ${dotfiles}/pomo-computer-magic.mp3";
+        # break - 5min
+        "${mod}+Shift+b" = "exec bash ${dotfiles}/pomo.sh -a start -d 300 -n false -s ${dotfiles}/pomo-computer-magic.mp3";
+        "${mod}+Shift+y" = "exec bash ${dotfiles}/pomo.sh -a stop";
       };
     };
   };
