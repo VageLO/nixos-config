@@ -11,6 +11,14 @@
     options = "--delete-older-than 30d";
   };
 
+  # Disable suspend on idle
+  services.logind = {
+    extraConfig = ''
+      IdleAction=ignore
+      IdleActionSec=0min
+    '';
+  };
+
   # Firewall
   networking.firewall = {
     enable = true;

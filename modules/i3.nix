@@ -184,7 +184,9 @@ in
         # workout - 20min
         "${mod}+Shift+w" = "exec bash ${dotfiles}/pomo.sh -a start -d 1200 -n false -s ${dotfiles}/pomo-computer-magic.mp3";
         # break - 5min
-        "${mod}+Shift+b" = "exec bash ${dotfiles}/pomo.sh -a start -d 300 -n false -s ${dotfiles}/pomo-computer-magic.mp3";
+        "${mod}+Shift+u" = "exec bash ${dotfiles}/pomo.sh -a start -d 300 -n false -s ${dotfiles}/pomo-computer-magic.mp3";
+        # big break - 15min
+        "${mod}+Shift+b" = "exec bash ${dotfiles}/pomo.sh -a start -d 900 -n false -s ${dotfiles}/pomo-computer-magic.mp3";
         "${mod}+Shift+y" = "exec bash ${dotfiles}/pomo.sh -a stop";
       };
     };
