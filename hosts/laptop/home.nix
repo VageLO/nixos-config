@@ -61,6 +61,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     DOTFILES = "$HOME/home-manager";
+    VAULT = "$HOME/main-vault";
     TERM = "xterm-kitty";
   };
 
