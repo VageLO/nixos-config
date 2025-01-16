@@ -8,8 +8,8 @@ let
       src = pkgs.fetchFromGitHub {
         owner = "moneymanagerex";
         repo = "moneymanagerex";
-        rev = "bb98eab92d95b7315d27f4e59ae59b50587106d8";
-        sha256 = "sha256-hu5TGT3Xd2aY8UEqdCbS2PrCcCOB2YB2I7Kn1se8WIU=";
+        rev = "d30879a42c471bd707611add65ab589a62e0a61d";
+        sha256 = "sha256-TOT5dFDCF3F1L8P2u+9Ve3/N9mtBD2/KirzF0pyfdIA";
         fetchSubmodules = true;
       };
 

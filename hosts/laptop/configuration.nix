@@ -98,6 +98,12 @@
       xterm.enable = false;
     };
 
+    displayManager.sessionCommands = ''
+      xset s off
+      xset -dpms
+      xset s noblank
+    '';
+
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
