@@ -11,6 +11,7 @@
 
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
+      resurrect
     ];
 
     extraConfig = ''

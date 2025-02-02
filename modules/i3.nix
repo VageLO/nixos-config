@@ -180,7 +180,7 @@ in
         "${mod}+Shift+F4" = "exec systemctl poweroff";
 
         # pomo - 25min
-        "${mod}+Shift+t" = "exec bash ${dotfiles}/pomo.sh -a start -s ${dotfiles}/pomo-gong.mp3";
+        "${mod}+Shift+t" = "exec bash ${dotfiles}/pomo.sh -a start -s ${dotfiles}/pomo-computer-magic.mp3";
         # workout - 20min
         "${mod}+Shift+w" = "exec bash ${dotfiles}/pomo.sh -a start -d 1200 -n false -s ${dotfiles}/pomo-computer-magic.mp3";
         # break - 5min
