@@ -14,7 +14,11 @@ in
       workspaceLayout = "tabbed";
 
       startup = [
-        { command = "--no-startup-id xsetroot -solid '#000000'"; always = true; notification = false; }
+        { 
+          command = "--no-startup-id xsetroot -solid '#000000'";
+          always = true;
+          notification = false;
+        }
       ];
 
       fonts = {
