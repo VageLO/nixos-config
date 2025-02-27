@@ -13,8 +13,8 @@
     ./undotree.nix
     ./yazi.nix
     ./lsp.nix
-    ./nvim-cmp.nix
-    #./blink.nix
+    #./nvim-cmp.nix
+    ./blink.nix
     #./blink-compat.nix
     ./markview.nix
     ./ibl.nix

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -9,6 +9,20 @@
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 30d";
+  };
+
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["vagelo"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      zlib
+      glibc
+    ];
   };
 
   # Disable suspend on idle
@@ -122,7 +136,7 @@
   users.users.vagelo = {
     isNormalUser = true;
     description = "vagelo";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
   };
 
   environment.systemPackages = with pkgs; [

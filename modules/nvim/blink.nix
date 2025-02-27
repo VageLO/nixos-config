@@ -1,63 +1,62 @@
 {
   programs.nixvim = {
     plugins = {
-      cmp-emoji.enable = true;
-      cmp-git.enable = true;
-      cmp-spell.enable = true;
+      blink-emoji.enable = true;
+      blink-cmp-spell.enable = true;
+      friendly-snippets.enable = true;
 
       blink-cmp = {
         enable = true;
 
         settings = {
-          keymap = {
-            preset = "default";
+          completion = {
+            accept = {
+              auto_brackets = {
+                enabled = true;
+                semantic_token_resolution = {
+                  enabled = false;
+                };
+              };
+            };
+            documentation = {
+              auto_show = true;
+            };
           };
 
-          signature = {
-            enable = true;
+          keymap = {
+            preset = "default";
           };
 
           sources = {
             default = [
               "lsp"
               "path"
-              "luasnip"
-              "spell"
+              "snippets"
               "emoji"
-              "git"
+              "spell"
             ];
+
             providers = {
               lsp = {
-                name = "lsp";
-                enable = true;
+                name = "LSP";
                 module = "blink.cmp.sources.lsp";
-                kind = "LSP";
-                score_offset = 1000;
+              };
+              path = {
+                name = "Path";
+                module = "blink.cmp.sources.path";
+              };
+              snippets = {
+                name = "Snippets";
+                module = "blink.cmp.sources.snippets";
               };
               emoji = {
-                name = "emoji";
-                enable = true;
-                module = "cmp_emoji";
-                score_offset = 950;
-              };
-              git = {
-                name = "git";
-                enable = true;
-                module = "blink.compat.source";
-                score_offset = 900;
+                name = "Emoji";
+                module = "blink-emoji";
               };
               spell = {
-                name = "spell";
-                enable = true;
-                module = "blink.compat.source";
-                score_offset = 920;
+                name = "Spell";
+                module = "blink-cmp-spell";
               };
-            };
-          };
-
-          windows = {
-            documentation = {
-              auto_show = true;
             };
           };
 

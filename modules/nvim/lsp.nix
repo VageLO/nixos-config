@@ -9,7 +9,17 @@
         nil_ls.enable = true;
         ts_ls.enable = true;
         ruff.enable = true;
-        pyright.enable = true;
+        pyright = {
+          enable = true;
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "off";
+                ignore = [ "*" ];
+              };
+            };
+          };
+        };
       };
 
       keymaps = {
