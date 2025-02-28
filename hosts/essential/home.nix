@@ -2,15 +2,15 @@
 {
   imports = [
     ../../modules/bash.nix
-    ../../module/yazi.nix
-    ../../module/i3.nix
-    ../../module/i3status.nix
-    ../../module/lazygit.nix
-    ../../module/aspell.nix
-    ../../module/tmux.nix
-    ../../module/kitty.nix
-    ../../module/nixgl.nix
-    ../../module/nvim
+    ../../modules/yazi.nix
+    ../../modules/i3.nix
+    ../../modules/i3status.nix
+    ../../modules/lazygit.nix
+    ../../modules/aspell.nix
+    ../../modules/tmux.nix
+    ../../modules/kitty.nix
+    ../../modules/nixgl.nix
+    ../../modules/nvim
   ];
 
   home.username = "vagelo";

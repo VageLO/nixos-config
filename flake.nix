@@ -13,8 +13,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs = {self, nixpkgs, nixgl, ...}@inputs:
@@ -24,7 +22,6 @@
 
       pkgs = import nixpkgs {
         config = { allowUnfree = true; };
-        overlays = [ nixgl.overlay ];
         inherit system;
       };
     in {
