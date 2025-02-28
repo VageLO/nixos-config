@@ -14,15 +14,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixgl.url = "github:nix-community/nixGL";
   };
 
-  outputs = {self, nixpkgs, ...}@inputs:
+  outputs = {self, nixpkgs, nixgl, ...}@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
         config = { allowUnfree = true; };
+        overlays = [ nixgl.overlay ];
         inherit system;
       };
     in {
@@ -51,6 +53,11 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/laptop/home.nix ];
+        };
+        "vagelo@ess" = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/essential/home.nix ];
         };
       };
     };
