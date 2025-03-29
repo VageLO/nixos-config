@@ -2,10 +2,10 @@
     programs.nixvim.plugins.markview = {
         enable = true;
         settings = {
-            hybrid_modes = [
+            preview.hybrid_modes = [
               "i"
             ];
-            modes = [
+            preview.modes = [
               "n"
             ]; 
         };

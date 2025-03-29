@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -13,11 +13,11 @@
     ./undotree.nix
     ./yazi.nix
     ./lsp.nix
-    #./nvim-cmp.nix
     ./blink.nix
-    #./blink-compat.nix
     ./markview.nix
     ./ibl.nix
+    ./conform.nix
+    ./lspsaga.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
 
@@ -48,6 +48,7 @@
       shiftwidth = 4;
       expandtab = true;
       guicursor = "n-v-i-c:block-Cursor";
+      signcolumn = "yes";
     };
 
     keymaps = [
@@ -63,6 +64,9 @@
       }
     ];
 
+    extraPackages = with pkgs; [
+      black
+    ];
   };
 }
 

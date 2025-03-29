@@ -2,13 +2,13 @@
     programs.nixvim.plugins.harpoon = {
         enable = true;
         keymaps = {
-            addFile = "<leader>ha";
-            toggleQuickMenu = "<leader>hh";
+            addFile = "<leader>hh";
+            toggleQuickMenu = "<leader>h";
             navFile = {
-                "1" = "<leader>hf";
-                "2" = "<leader>hd";
-                "3" = "<leader>hs";
-                "4" = "<leader>hc";
+                "1" = "<leader>1";
+                "2" = "<leader>2";
+                "3" = "<leader>3";
+                "4" = "<leader>4";
             };
         };
     };

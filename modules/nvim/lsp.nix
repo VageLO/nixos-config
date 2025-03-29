@@ -2,7 +2,6 @@
   programs.nixvim = {
     plugins.lsp = {
       enable = true;
-
       servers = {
         lua_ls.enable = true;
         gopls.enable = true;
@@ -13,7 +12,10 @@
           enable = true;
           settings = {
             python = {
+              pythonPath = "./.venv/bin/python";
               analysis = {
+                autoSearchPaths = true;
+                useLibraryCodeForTypes = true;
                 typeCheckingMode = "off";
                 ignore = [ "*" ];
               };
@@ -21,22 +23,7 @@
           };
         };
       };
-
-      keymaps = {
-        diagnostic = {
-          "<leader>j" = "goto_next";
-          "<leader>k" = "goto_prev";
-        };
-
-        lspBuf = {
-          K = "hover";
-          gD = "references";
-          gd = "definition";
-          gi = "implementation";
-          gt = "type_definition";
-        };
-      };
-
     };
+
   };
 }
