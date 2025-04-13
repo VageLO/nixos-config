@@ -36,7 +36,9 @@
   # Firewall
   networking.firewall = {
     enable = true;
-    interfaces = {};
+    interfaces = {
+      "wlp4s0".allowedTCPPorts = [ 8888 ];
+    };
   };
 
   security.rtkit.enable = true;
