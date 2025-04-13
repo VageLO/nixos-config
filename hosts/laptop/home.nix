@@ -19,6 +19,7 @@
   };
 
   home.packages = with pkgs; [
+    quick-lookup
     zotero
     lazydocker
     uv

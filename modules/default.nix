@@ -11,6 +11,7 @@
     ./anki-service.nix
     ./tmux.nix
     ./kitty.nix
+    ./gtk.nix
     ./nvim
   ];
 }

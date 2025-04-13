@@ -13,6 +13,10 @@ in
       floating.modifier = mod;
       workspaceLayout = "tabbed";
 
+      floating.criteria = [
+        { class = "com.github.johnfactotum.QuickLookup"; }
+      ];
+
       startup = [
         { 
           command = "--no-startup-id xsetroot -solid '#000000'";
@@ -182,6 +186,9 @@ in
         "${mod}+Shift+F1" = "exec systemctl reboot";
         "${mod}+Shift+F2" = "exec systemctl suspend";
         "${mod}+Shift+F4" = "exec systemctl poweroff";
+
+        # quick-lookup
+        "${mod}+Shift+d" = "exec --no-startup-id quick-lookup --selection";
 
         # pomo - 25min
         "${mod}+Shift+t" = "exec bash ${dotfiles}/pomo.sh -a start -s ${dotfiles}/pomo-computer-magic.mp3";
