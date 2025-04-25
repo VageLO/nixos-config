@@ -12,6 +12,7 @@
     ./tmux.nix
     ./kitty.nix
     ./gtk.nix
+    ./tmux-sessionizer.nix
     ./nvim
   ];
 }

@@ -11,7 +11,6 @@
 
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
-      resurrect
     ];
 
     extraConfig = ''
@@ -37,6 +36,11 @@
       bind-key k select-pane -U
       bind-key l select-pane -R
 
+      bind-key -r f run-shell "tmux neww tmux-sessionizer"
+      bind-key -r H run-shell "tmux neww tmux-sessionizer ~/home-manager/"
+
+      bind -T copy-mode-vi v send-keys -X begin-selection
+      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
     '';
   };
 }

@@ -99,7 +99,7 @@ in
         "${mod}+d" = "exec --no-startup-id rofi -modi drun -show drun";
 
         # start a terminal
-        "${mod}+Return" = "exec kitty -e tmux new-session";
+        "${mod}+Return" = "exec kitty -e tmux new tmux-sessionizer";
 
         # kill focused window
         "${mod}+Shift+q" = "kill";
