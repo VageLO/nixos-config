@@ -18,6 +18,7 @@
     ./ibl.nix
     ./conform.nix
     ./lspsaga.nix
+    ./vimtex.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
 
@@ -38,6 +39,7 @@
     };
 
     opts = {
+      laststatus=3;
       number = true;
       tabstop = 4;
       relativenumber = true;
@@ -69,4 +71,3 @@
     ];
   };
 }
-
