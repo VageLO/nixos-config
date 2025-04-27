@@ -19,6 +19,7 @@
     ./conform.nix
     ./lspsaga.nix
     ./vimtex.nix
+    ./obsidian.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
 
