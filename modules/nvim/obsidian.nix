@@ -36,11 +36,15 @@
       ObsidianCustomToday = {
         command = ''
         lua
+        local weekly_notes = require("weekly_notes")
         local client = require("obsidian").get_client()
 
         local year = os.date("%Y") -- e.g., "2025"
         local month = os.date("%m"):gsub("^0", "") -- e.g., "4"
-        local week = "Week " .. tostring(tonumber(os.date("%V")) or 1)
+        local week_number = tonumber(os.date("%V")) or 1
+        local week = "Week " .. tostring(week_number)
+
+        local week_days = weekly_notes.get_week_days(week_number, tonumber(year))
 
         local base_path = "/Notes/DailyNotes"
         local target_dir = string.format("%s/%s/%s", base_path, year, month)
@@ -49,6 +53,7 @@
         client.opts.templates.substitutions = {
           year = year,
           month = month,
+          week_month = week_days.month,
           week = week,
           weekTitle = week
         }
@@ -61,13 +66,17 @@
       ObsidianCustomTomorrow = {
         command = ''
         lua
+        local weekly_notes = require("weekly_notes")
         local client = require("obsidian").get_client()
 
         local tomorrow_time = os.time() + (24 * 60 * 60)
 
         local year = os.date("%Y", tomorrow_time) -- e.g., "2025"
         local month = os.date("%m", tomorrow_time):gsub("^0", "") -- e.g., "4"
-        local week = "Week " .. tostring(tonumber(os.date("%V", tomorrow_time)) or 1)
+        local week_number = tonumber(os.date("%V", tomorrow_time)) or 1
+        local week = "Week " .. tostring(week_number)
+
+        local week_days = weekly_notes.get_week_days(week_number, tonumber(year))
 
         local base_path = "/Notes/DailyNotes"
         local target_dir = string.format("%s/%s/%s", base_path, year, month)
@@ -76,6 +85,7 @@
         client.opts.templates.substitutions = {
           year = year,
           month = month,
+          week_month = week_days.month,
           week = week,
           weekTitle = week
         }
@@ -88,13 +98,17 @@
       ObsidianCustomYesterday = {
         command = ''
         lua
+        local weekly_notes = require("weekly_notes")
         local client = require("obsidian").get_client()
 
         local yesterday_time = os.time() - (24 * 60 * 60)
 
         local year = os.date("%Y", yesterday_time) -- e.g., "2025"
         local month = os.date("%m", yesterday_time):gsub("^0", "") -- e.g., "4"
-        local week = "Week " .. tostring(tonumber(os.date("%V", yesterday_time)) or 1)
+        local week_number = tonumber(os.date("%V", yesterday_time)) or 1
+        local week = "Week " .. tostring(week_number)
+
+        local week_days = weekly_notes.get_week_days(week_number, tonumber(year))
 
         local base_path = "/Notes/DailyNotes"
         local target_dir = string.format("%s/%s/%s", base_path, year, month)
@@ -103,6 +117,7 @@
         client.opts.templates.substitutions = {
           year = year,
           month = month,
+          month_week = week_days.month,
           week = week,
           weekTitle = week
         }
@@ -115,60 +130,15 @@
       ObsidianWeek = {
         command = ''
         lua
+        local weekly_notes = require("weekly_notes")
         local client = require("obsidian").get_client()
 
-        -- Function to compute dates for Monday through Sunday as YYYY-M-DD
-        local function get_week_days(week_number, year)
-          if not (year and week_number) or type(year) ~= "number" or type(week_number) ~= "number" then
-            error("Invalid input: year and week_number must be numbers")
-          end
-
-          year = math.floor(year)
-          week_number = math.floor(week_number)
-
-          local function has_53_weeks(yr)
-              local jan1 = os.time({ year = yr, month = 1, day = 1, hour = 0 })
-              local jan1_weekday = tonumber(os.date("%w", jan1))
-              local is_leap = (yr % 4 == 0 and yr % 100 ~= 0) or (yr % 400 == 0)
-              return (jan1_weekday == 4) or (jan1_weekday == 3 and is_leap)
-          end
-
-          local max_weeks = has_53_weeks(year) and 53 or 52
-          if week_number < 1 or week_number > max_weeks then
-              error(string.format("Invalid week_number: %d. Must be between 1 and %d for year %d", week_number, max_weeks, year))
-          end
-
-          local jan4 = os.time({ year = year, month = 1, day = 4, hour = 0 })
-          local jan4_weekday = tonumber(os.date("%w", jan4)) -- 0=Sunday, 1=Monday, ..., 6=Saturday
-
-          local days_to_week1_monday = (jan4_weekday == 0 and 6 or jan4_weekday - 1)
-          local week1_monday = jan4 - (days_to_week1_monday * 24 * 60 * 60)
-
-          local days_to_target_monday = (week_number - 1) * 7 * 24 * 60 * 60
-          local monday_time = week1_monday + days_to_target_monday
-
-          local days = {}
-          for i = 0, 6 do
-              days[i + 1] = os.date("%Y-%-m-%-d", monday_time + (i * 24 * 60 * 60))
-          end
-
-          return {
-            monday = days[1],
-            tuesday = days[2],
-            wednesday = days[3],
-            thursday = days[4],
-            friday = days[5],
-            saturday = days[6],
-            sunday = days[7],
-          }
-        end
-
         local year = os.date("%Y")
-        local month = os.date("%m"):gsub("^0", "")
-
-        -- Get week number and compute days
         local week_number = tonumber(os.date("%V")) or 1
-        local week_days = get_week_days(week_number, tonumber(year))
+
+        local week_days = weekly_notes.get_week_days(week_number, tonumber(year))
+
+        local month = week_days.month
 
         local prev_week = week_number - 1
         if prev_week == 0 then
@@ -180,7 +150,7 @@
           year = year,
           yearTitle = year,
           month = month,
-          monthTitle = os.date("%b"),
+          monthTitle = week_days.month_title,
           prev = tostring(prev_week),
           prevTitle = tostring(prev_week),
           monday = week_days.monday,
@@ -290,6 +260,66 @@
         client:open_note(note)
         '';
         desc = "Create or open a yearly note";
+      };
+    };
+    extraFiles = {
+      "lua/weekly_notes.lua" = {
+        text = ''
+        local M = {}
+
+        -- Function to compute dates for Monday through Sunday as YYYY-M-DD and return month
+        function M.get_week_days(week_number, year)
+            if not (year and week_number) or type(year) ~= "number" or type(week_number) ~= "number" then
+                error("Invalid input: year and week_number must be numbers")
+            end
+
+            year = math.floor(year)
+            week_number = math.floor(week_number)
+
+            local function has_53_weeks(yr)
+                local jan1 = os.time({ year = yr, month = 1, day = 1, hour = 0 })
+                local jan1_weekday = tonumber(os.date("%w", jan1))
+                local is_leap = (yr % 4 == 0 and yr % 100 ~= 0) or (yr % 400 == 0)
+                return (jan1_weekday == 4) or (jan1_weekday == 3 and is_leap)
+            end
+
+            local max_weeks = has_53_weeks(year) and 53 or 52
+            if week_number < 1 or week_number > max_weeks then
+                error(string.format("Invalid week_number: %d. Must be between 1 and %d for year %d", week_number, max_weeks, year))
+            end
+
+            local jan4 = os.time({ year = year, month = 1, day = 4, hour = 0 })
+            local jan4_weekday = tonumber(os.date("%w", jan4)) -- 0=Sunday, 1=Monday, ..., 6=Saturday
+
+            local days_to_week1_monday = (jan4_weekday == 0 and 6 or jan4_weekday - 1)
+            local week1_monday = jan4 - (days_to_week1_monday * 24 * 60 * 60)
+
+            local days_to_target_monday = (week_number - 1) * 7 * 24 * 60 * 60
+            local monday_time = week1_monday + days_to_target_monday
+
+            local days = {}
+            for i = 0, 6 do
+                days[i + 1] = os.date("%Y-%-m-%d", monday_time + (i * 24 * 60 * 60))
+            end
+
+            local month = os.date("%m", monday_time):gsub("^0", "")
+            local month_title = os.date("%b", monday_time)
+
+            return {
+                monday = days[1],
+                tuesday = days[2],
+                wednesday = days[3],
+                thursday = days[4],
+                friday = days[5],
+                saturday = days[6],
+                sunday = days[7],
+                month = month,
+                month_title = month_title
+            }
+        end
+
+        return M
+      '';
       };
     };
   };

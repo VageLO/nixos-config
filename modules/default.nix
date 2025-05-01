@@ -13,6 +13,7 @@
     ./kitty.nix
     ./gtk.nix
     ./tmux-sessionizer.nix
+    ./mixxx.nix
     ./nvim
   ];
 }
