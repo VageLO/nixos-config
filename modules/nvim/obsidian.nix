@@ -117,7 +117,7 @@
         client.opts.templates.substitutions = {
           year = year,
           month = month,
-          month_week = week_days.month,
+          week_month = week_days.month,
           week = week,
           weekTitle = week
         }
