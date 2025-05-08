@@ -4,21 +4,42 @@
     enable = true;
 
     settings = {
+      disable_frontmatter = true;
+      notes_subdir = "4 Inbox";
+      new_notes_location = "notes_subdir";
+
       workspaces = [
         {
           name = "main-vault";
           path = "${config.home.homeDirectory}/main-vault";
         }
       ];
+
       daily_notes = {
         folder = "Notes/DailyNotes";
         date_format = "%Y-%-m-%d";
         template = "Note templates/Nvim Daily Notes.md";
       };
+
       templates = {
         folder = "templates";
       };
-      disable_frontmatter = true;
+
+      picker = {
+        name = "telescope.nvim";
+        note_mappings = {
+          new = "<C-x>";
+          insert_link = "<C-l>";
+        };
+        tag_mappings = {
+          tag_note = "<C-x>";
+          insert_tag = "<C-l>";
+        };
+      };
+
+      completion = {
+        blink = true;
+      };
     };
   };
 
@@ -145,12 +166,16 @@
             prev_week = 52
         end
 
+        local prev_week_days = weekly_notes.get_week_days(prev_week, tonumber(year))
+        local prev_month = prev_week_days.month
+
         -- Set up template substitutions
         local substitutions = {
           year = year,
           yearTitle = year,
           month = month,
           monthTitle = week_days.month_title,
+          prev_month = prev_month,
           prev = tostring(prev_week),
           prevTitle = tostring(prev_week),
           monday = week_days.monday,

@@ -30,6 +30,9 @@
           sources = {
             default = [
               "lsp"
+              "obsidian"
+              "obsidian_new"
+              "obsidian_tags"
               "path"
               "snippets"
               "emoji"
