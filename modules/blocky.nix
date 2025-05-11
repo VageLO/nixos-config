@@ -6,12 +6,18 @@
   services = {
     blocky.enable = true;
     blocky.settings = {
+      prometheus = {
+        enable = true;
+        path = "/metrics";
+      };
+
       upstreams.groups = {
         default = [
           "1.1.1.1"
           "8.8.8.8"
         ];
       };
+
       bootstrapDns = {
         upstream = "https://one.one.one.one/dns-query";
         ips = [
@@ -19,6 +25,7 @@
           "1.0.0.1"
         ];
       };
+
       blocking = {
         loading = {
           downloads = {

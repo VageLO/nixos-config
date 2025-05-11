@@ -2,6 +2,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/blocky.nix
+    ../../modules/grafana.nix
+    ../../modules/prometheus.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

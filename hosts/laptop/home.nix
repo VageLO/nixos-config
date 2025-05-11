@@ -19,6 +19,7 @@
   };
 
   home.packages = with pkgs; [
+    qutebrowser
     blocky
     pandoc_3_6
     autorandr
