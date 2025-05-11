@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/blocky.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -37,7 +38,10 @@
   networking.firewall = {
     enable = true;
     interfaces = {
-      "wlp4s0".allowedTCPPorts = [ 8888 ];
+      "wlp4s0" = {
+        allowedTCPPorts = [ 8888 53 ];
+        allowedUDPPorts = [ 53 ];
+      };
     };
   };
 

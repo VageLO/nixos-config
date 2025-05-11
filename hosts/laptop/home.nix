@@ -19,6 +19,7 @@
   };
 
   home.packages = with pkgs; [
+    blocky
     pandoc_3_6
     autorandr
     quick-lookup
