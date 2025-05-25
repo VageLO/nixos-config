@@ -28,6 +28,7 @@
 
       blocking = {
         loading = {
+          refreshPeriod = 0;
           downloads = {
             timeout = "4m";
             attempts = 5;
@@ -51,6 +52,10 @@
             "https://raw.githubusercontent.com/AdGoBye/AdGoBye-Blocklists/main/AGBCommunity.toml"
             "https://raw.githubusercontent.com/AdGoBye/AdGoBye-Blocklists/main/AGBUpsell.toml"
             "https://raw.githubusercontent.com/AdGoBye/AdGoBye-Blocklists/main/AGBSupporters.toml"
+            "https://raw.githubusercontent.com/sefinek/Sefinek-Blocklist-Collection/refs/heads/main/blocklists/generated/0.0.0.0/ads/blocklistproject/youtube.fork.txt"
+            "https://raw.githubusercontent.com/sefinek/Sefinek-Blocklist-Collection/refs/heads/main/blocklists/generated/0.0.0.0/ads/kboghdady/youtubelist.fork.txt"
+            "https://raw.githubusercontent.com/sefinek/Sefinek-Blocklist-Collection/refs/heads/main/blocklists/generated/0.0.0.0/redirect/blocklistproject/redirect.fork.txt"
+            "https://raw.githubusercontent.com/sefinek/Sefinek-Blocklist-Collection/refs/heads/main/blocklists/generated/0.0.0.0/ads/yoyo/ads-trackers-etc.fork.txt"
           ];
           tracking = [
             "https://v.firebog.net/hosts/Easyprivacy.txt"
@@ -70,6 +75,7 @@
           ];
           adult = [
             "https://blocklistproject.github.io/Lists/porn.txt"
+            "https://raw.githubusercontent.com/sefinek/Sefinek-Blocklist-Collection/refs/heads/main/blocklists/generated/0.0.0.0/porn/sefinek.hosts2.txt"
           ];
           #distraction = [
           #  ''

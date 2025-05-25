@@ -1,9 +1,10 @@
 { pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/blocky.nix
-    ../../modules/grafana.nix
-    ../../modules/prometheus.nix
+    ../../services/blocky.nix
+    ../../services/grafana.nix
+    ../../services/prometheus.nix
+    ../../services/i2p.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -143,6 +144,14 @@
     isNormalUser = true;
     description = "vagelo";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
+  };
+
+  xdg.mime.defaultApplications = {
+    "text/html" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/about" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
   };
 
   environment.systemPackages = with pkgs; [

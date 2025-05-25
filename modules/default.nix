@@ -14,6 +14,7 @@
     ./gtk.nix
     ./tmux-sessionizer.nix
     ./mixxx.nix
+    ./newsboat.nix
     ./nvim
   ];
 }
