@@ -31,5 +31,5 @@ let
   '';
 in
 {
-  home.packages = [ pkgs.fzf tmux-sessionizer ];
+  home.packages = [ tmux-sessionizer ];
 }

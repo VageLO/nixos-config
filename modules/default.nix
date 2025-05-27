@@ -15,6 +15,7 @@
     ./tmux-sessionizer.nix
     ./mixxx.nix
     ./newsboat.nix
+    ./fzf.nix
     ./nvim
   ];
 }
