@@ -105,8 +105,8 @@ in
         "${mod}+Shift+q" = "kill";
 
         # Screenshot
-        "${mod}+p" = "exec scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -q 100 -M 0 -e 'xclip -selection clipboard -target image/png -i $f && mv $f ~/Pictures/'";
-        "${mod}+Shift+p" = "exec scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -q 100 -M 0 -e 'xclip -selection clipboard -target image/png -i $f && rm $f'";
+        "${mod}+p" = "exec scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -s -q 100 -e 'xclip -selection clipboard -target image/png -i $f && mv $f ~/Pictures/'";
+        "${mod}+Shift+p" = "exec scrot 'screenshot_%Y-%m-%d_%H-%M-%S.png' -s -q 100 -e 'xclip -selection clipboard -target image/png -i $f && rm $f'";
 
         # change focus
         "${mod}+h" = "focus left";

@@ -13,7 +13,7 @@
     ./kitty.nix
     ./gtk.nix
     ./tmux-sessionizer.nix
-    ./mixxx.nix
+    #./mixxx.nix
     ./newsboat.nix
     ./fzf.nix
     ./nvim
