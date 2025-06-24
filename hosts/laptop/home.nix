@@ -19,6 +19,7 @@
   };
 
   home.packages = with pkgs; [
+    ff2mpv-rust
     qutebrowser
     blocky
     pandoc_3_6
@@ -39,7 +40,7 @@
     xclip
     obsidian
     keepassxc
-    mpv
+    #mpv
     anki-bin
     go
     google-chrome
@@ -57,6 +58,7 @@
   ];
 
   home.file = {
+    ".config/google-chrome/NativeMessagingHosts/ff2mpv.json".source = "${pkgs.ff2mpv-rust}/etc/opt/chrome/native-messaging-hosts/ff2mpv.json";
     ".config/alacritty" = {
       recursive = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/alacritty";
