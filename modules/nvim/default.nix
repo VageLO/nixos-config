@@ -52,6 +52,7 @@
       expandtab = true;
       guicursor = "n-v-i-c:block-Cursor";
       signcolumn = "yes";
+      conceallevel = 1;
     };
 
     keymaps = [

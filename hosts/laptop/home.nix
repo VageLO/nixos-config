@@ -7,7 +7,7 @@
   home.username = "vagelo";
   home.homeDirectory = "/home/vagelo";
 
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05";
 
   programs.git = {
     enable = true;
@@ -21,8 +21,8 @@
   home.packages = with pkgs; [
     ff2mpv-rust
     qutebrowser
-    blocky
-    pandoc_3_6
+    #blocky
+    pandoc
     autorandr
     quick-lookup
     zotero

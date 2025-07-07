@@ -58,7 +58,8 @@
         command = ''
         lua
         local weekly_notes = require("weekly_notes")
-        local client = require("obsidian").get_client()
+        local opts = Obsidian.opts
+        opts.daily_notes.workdays_only = false
 
         local year = os.date("%Y") -- e.g., "2025"
         local month = os.date("%m"):gsub("^0", "") -- e.g., "4"
@@ -70,8 +71,8 @@
         local base_path = "/Notes/DailyNotes"
         local target_dir = string.format("%s/%s/%s", base_path, year, month)
 
-        client.opts.daily_notes.folder = target_dir
-        client.opts.templates.substitutions = {
+        opts.daily_notes.folder = target_dir
+        opts.templates.substitutions = {
           year = year,
           month = month,
           week_month = week_days.month,
@@ -79,8 +80,8 @@
           weekTitle = week
         }
 
-        local note = client:today()
-        client:open_note(note)
+        local note = require("obsidian.daily").today()
+        require("obsidian.client"):open_note(note)
         '';
         desc = "Create or open a daily note with custom year/month path";
       };
@@ -88,7 +89,8 @@
         command = ''
         lua
         local weekly_notes = require("weekly_notes")
-        local client = require("obsidian").get_client()
+        local opts = Obsidian.opts
+        opts.daily_notes.workdays_only = false
 
         local tomorrow_time = os.time() + (24 * 60 * 60)
 
@@ -102,8 +104,8 @@
         local base_path = "/Notes/DailyNotes"
         local target_dir = string.format("%s/%s/%s", base_path, year, month)
 
-        client.opts.daily_notes.folder = target_dir
-        client.opts.templates.substitutions = {
+        opts.daily_notes.folder = target_dir
+        opts.templates.substitutions = {
           year = year,
           month = month,
           week_month = week_days.month,
@@ -111,8 +113,8 @@
           weekTitle = week
         }
 
-        local note = client:_daily(tomorrow_time)
-        client:open_note(note)
+        local note = require("obsidian.daily").daily(1)
+        require("obsidian.client"):open_note(note)
         '';
         desc = "Create or open a daily note for the next day with custom year/month path";
       };
@@ -120,7 +122,8 @@
         command = ''
         lua
         local weekly_notes = require("weekly_notes")
-        local client = require("obsidian").get_client()
+        local opts = Obsidian.opts
+        opts.daily_notes.workdays_only = false
 
         local yesterday_time = os.time() - (24 * 60 * 60)
 
@@ -134,8 +137,8 @@
         local base_path = "/Notes/DailyNotes"
         local target_dir = string.format("%s/%s/%s", base_path, year, month)
 
-        client.opts.daily_notes.folder = target_dir
-        client.opts.templates.substitutions = {
+        opts.daily_notes.folder = target_dir
+        opts.templates.substitutions = {
           year = year,
           month = month,
           week_month = week_days.month,
@@ -143,8 +146,8 @@
           weekTitle = week
         }
 
-        local note = client:_daily(yesterday_time)
-        client:open_note(note)
+        local note = require("obsidian.daily").yesterday()
+        require("obsidian.client"):open_note(note)
         '';
         desc = "Create or open a daily note from the last day with custom year/month path";
       };
@@ -152,7 +155,8 @@
         command = ''
         lua
         local weekly_notes = require("weekly_notes")
-        local client = require("obsidian").get_client()
+        local client = require("obsidian.client")
+        local opts = Obsidian.opts
 
         local year = os.date("%Y")
         local week_number = tonumber(os.date("%V")) or 1
@@ -187,7 +191,7 @@
           sunday = week_days.sunday,
         }
 
-        client.opts.templates.substitutions = substitutions
+        opts.templates.substitutions = substitutions
 
         -- Configure weekly note path
         local base_path = "Notes/WeeklyNotes"
@@ -216,12 +220,13 @@
       ObsidianMonth = {
         command = ''
         lua
-        local client = require("obsidian").get_client()
+        local client = require("obsidian.client")
+        local opts = Obsidian.opts
 
         local year = os.date("%Y")
         local month = os.date("%m"):gsub("^0", "")
 
-        client.opts.templates.substitutions = {
+        opts.templates.substitutions = {
           year = year,
           yearTitle = year
         }
@@ -253,12 +258,13 @@
       ObsidianYear = {
         command = ''
         lua
-        local client = require("obsidian").get_client()
+        local client = require("obsidian.client")
+        local opts = Obsidian.opts
 
         local year = tonumber(os.date("%Y"))
         local prev = tostring(year - 1)
 
-        client.opts.templates.substitutions = {
+        opts.templates.substitutions = {
           prev = prev,
           prevTitle = prev
         }

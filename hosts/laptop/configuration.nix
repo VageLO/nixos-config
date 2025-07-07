@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     #../../services/blocky.nix
@@ -13,6 +13,20 @@
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 30d";
+  };
+
+  hardware.graphics.enable = true;
+
+  hardware.nvidia = {
+    open = true;
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:2:0:0";
+    };
   };
 
   programs.virt-manager.enable = true;
@@ -108,12 +122,14 @@
   };
 
   services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+
     xkb = {
       layout = "us,ru";
       variant = "";
       options = "grp:ctrl_alt_toggle";
     };
-    enable = true;
 
     desktopManager = {
       xterm.enable = false;

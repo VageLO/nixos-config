@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
-  programs.mpv.enable = true;
+  programs.mpv = {
+    enable = true;
+  };
   home.file = {
     ".config/mpv" = {
       recursive = true;
