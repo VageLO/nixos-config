@@ -13,6 +13,12 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    #emacs-overlay = {
+    #  url = "github:nix-community/emacs-overlay";
+    #};
   };
 
   outputs = {self, nixpkgs, ...}@inputs:
@@ -22,6 +28,7 @@
 
       pkgs = import nixpkgs {
         config = { allowUnfree = true; };
+        #overlays = [ inputs.emacs-overlay.overlay ];
         inherit system;
       };
     in {

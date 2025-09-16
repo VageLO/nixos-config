@@ -43,12 +43,26 @@
     ];
   };
 
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "vagelo";
+    group = "users";
+    dataDir = "/home/vagelo/.syncthing";
+    configDir = "/home/vagelo/.syncthing/config";
+  };
+
+  #services.emacs = {
+  #  enable = true;
+  #  package = pkgs.emacs-git;
+  #};
+
   # Disable suspend on idle
-  services.logind = {
-    extraConfig = ''
-      IdleAction=ignore
-      IdleActionSec=0min
-    '';
+  services.logind.settings = {
+    Login = {
+      IdleAction = "ignore";
+      IdleActionSec = "0min";
+    };
   };
 
   # Firewall
@@ -56,8 +70,8 @@
     enable = true;
     interfaces = {
       "wlp4s0" = {
-        allowedTCPPorts = [ 8888 53 ];
-        allowedUDPPorts = [ 53 ];
+        allowedTCPPorts = [ 8096 ];
+        #allowedUDPPorts = [ 53 ];
       };
     };
   };
@@ -171,6 +185,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    #emacsGcc
     docker
     docker-compose
     libimobiledevice

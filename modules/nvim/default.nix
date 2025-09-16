@@ -20,7 +20,7 @@
     ./lspsaga.nix
     ./vimtex.nix
     ./obsidian.nix
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
   ];
 
   programs.nixvim = {

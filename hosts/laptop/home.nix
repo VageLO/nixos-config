@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
   imports = [
     ../../modules
@@ -19,6 +19,11 @@
   };
 
   home.packages = with pkgs; [
+    (
+      inputs.zen-browser.packages."${system}".default.override {
+        nativeMessagingHosts = [pkgs.firefoxpwa];
+      }
+    )
     ff2mpv-rust
     qutebrowser
     #blocky

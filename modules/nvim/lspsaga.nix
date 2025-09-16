@@ -2,8 +2,13 @@
   programs.nixvim = {
     plugins.lspsaga = {
       enable = true;
-      lightbulb.enable = false;
-      ui = { border = "rounded"; title = true; };
+      settings = {
+        lightbulb.enable = false;
+        ui = {
+          border = "rounded";
+          title = true;
+        };
+      };
     };
 
     keymaps = [

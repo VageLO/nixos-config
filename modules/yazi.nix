@@ -4,7 +4,7 @@
   programs.yazi = {
     enable = true;
     settings = {
-      manager = {
+      mgr = {
         sort_by = "mtime";
         sort_reverse = true;
         show_hidden = true;
@@ -14,7 +14,7 @@
     };
 
     keymap = {
-      manager.prepend_keymap = [
+      mgr.prepend_keymap = [
         {
           run = "cd $DOTFILES";
           on = [ "s" "d" ];
