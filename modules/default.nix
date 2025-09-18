@@ -1,6 +1,6 @@
 {
   imports = [
-    ./bash.nix
+    #./bash.nix
     ./mpv.nix
     ./mmex.nix
     ./yazi.nix
@@ -16,6 +16,7 @@
     #./mixxx.nix
     ./newsboat.nix
     ./fzf.nix
+    ./zsh.nix
     ./nvim
   ];
 }

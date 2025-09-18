@@ -43,6 +43,8 @@
     ];
   };
 
+  programs.zsh.enable = true;
+
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
@@ -174,6 +176,8 @@
     isNormalUser = true;
     description = "vagelo";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
+    shell = pkgs.zsh;
+    useDefaultShell = true;
   };
 
   xdg.mime.defaultApplications = {
@@ -185,7 +189,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    #emacsGcc
     docker
     docker-compose
     libimobiledevice
@@ -195,7 +198,6 @@
     lazygit
     gcc
     gnumake
-    alacritty
     tmux
     ripgrep
   ];

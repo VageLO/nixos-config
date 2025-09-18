@@ -64,10 +64,6 @@
 
   home.file = {
     ".config/google-chrome/NativeMessagingHosts/ff2mpv.json".source = "${pkgs.ff2mpv-rust}/etc/opt/chrome/native-messaging-hosts/ff2mpv.json";
-    ".config/alacritty" = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/alacritty";
-    };
     ".config/rofi" = {
       recursive = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/rofi";
