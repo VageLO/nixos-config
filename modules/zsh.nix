@@ -5,6 +5,9 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    initContent = ''
+      bindkey "''${key[Up]}" up-line-or-search
+    '';
 
     shellAliases = {
       v = "nvim";

@@ -19,14 +19,9 @@
   };
 
   home.packages = with pkgs; [
-    (
-      inputs.zen-browser.packages."${system}".default.override {
-        nativeMessagingHosts = [pkgs.firefoxpwa];
-      }
-    )
+    starship
     ff2mpv-rust
     qutebrowser
-    #blocky
     pandoc
     autorandr
     quick-lookup
@@ -45,7 +40,6 @@
     xclip
     obsidian
     keepassxc
-    #mpv
     anki-bin
     go
     google-chrome

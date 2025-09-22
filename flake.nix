@@ -14,8 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
     #emacs-overlay = {
     #  url = "github:nix-community/emacs-overlay";
     #};
@@ -57,11 +55,6 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/laptop/home.nix ];
-        };
-        "vagelo@ess" = inputs.home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/essential/home.nix ];
         };
       };
     };

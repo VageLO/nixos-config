@@ -17,6 +17,7 @@
     ./newsboat.nix
     ./fzf.nix
     ./zsh.nix
+    ./starship.nix
     ./nvim
   ];
 }

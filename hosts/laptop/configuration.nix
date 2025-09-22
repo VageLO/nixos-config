@@ -175,7 +175,7 @@
   users.users.vagelo = {
     isNormalUser = true;
     description = "vagelo";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd"];
     shell = pkgs.zsh;
     useDefaultShell = true;
   };
