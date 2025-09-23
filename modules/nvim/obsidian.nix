@@ -4,8 +4,9 @@
     enable = true;
 
     settings = {
+      legacy_commands = false;
       disable_frontmatter = true;
-      notes_subdir = "4 Inbox";
+      notes_subdir = "2 Inbox";
       new_notes_location = "notes_subdir";
 
       workspaces = [

@@ -1,10 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    #../../services/blocky.nix
-    #../../services/grafana.nix
-    #../../services/prometheus.nix
-    #../../services/i2p.nix
+    ../../services
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
