@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    alfa = {
+      url = "github:VageLO/pdf-parse";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #emacs-overlay = {
     #  url = "github:nix-community/emacs-overlay";
     #};
@@ -26,7 +31,12 @@
 
       pkgs = import nixpkgs {
         config = { allowUnfree = true; };
-        #overlays = [ inputs.emacs-overlay.overlay ];
+        overlays = [
+          (final: prev: {
+            alfa = inputs.alfa.packages.${system}.default;
+          })
+          #inputs.emacs-overlay.overlay
+        ];
         inherit system;
       };
     in {

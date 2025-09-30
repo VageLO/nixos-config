@@ -69,7 +69,7 @@
     enable = true;
     interfaces = {
       "wlp4s0" = {
-        allowedTCPPorts = [ 8096 ];
+        allowedTCPPorts = [ 8096 8000 ];
         #allowedUDPPorts = [ 53 ];
       };
     };
@@ -197,6 +197,7 @@
     gnumake
     tmux
     ripgrep
+    alfa
   ];
 
   # Fonts
