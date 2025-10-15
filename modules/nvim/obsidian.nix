@@ -82,7 +82,7 @@
         }
 
         local note = require("obsidian.daily").today()
-        require("obsidian.client"):open_note(note)
+        note:open()
         '';
         desc = "Create or open a daily note with custom year/month path";
       };
@@ -115,7 +115,7 @@
         }
 
         local note = require("obsidian.daily").daily(1)
-        require("obsidian.client"):open_note(note)
+        note:open()
         '';
         desc = "Create or open a daily note for the next day with custom year/month path";
       };
@@ -148,7 +148,7 @@
         }
 
         local note = require("obsidian.daily").yesterday()
-        require("obsidian.client"):open_note(note)
+        note:open()
         '';
         desc = "Create or open a daily note from the last day with custom year/month path";
       };

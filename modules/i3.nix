@@ -48,11 +48,12 @@ in
         {
           trayOutput = "primary";
           statusCommand = "${pkgs.writeScript "i3status-timer-wrapper" ''
-            #!/usr/bin/env bash
+            #!${pkgs.bash}/bin/bash
             i3status | while :
             do
                 read line
-                TIMER_OUTPUT=$(bash ${dotfiles}/pomo.sh)
+                VAULT=${config.home.sessionVariables.VAULT}
+                TIMER_OUTPUT=$(bash ${dotfiles}/pomo.sh -v $VAULT)
                 echo "$TIMER_OUTPUT | ''${line#,\[}" || exit 1
             done
           ''}";
