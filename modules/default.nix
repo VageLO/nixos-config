@@ -18,6 +18,7 @@
     ./fzf.nix
     ./zsh.nix
     ./starship.nix
+    #./i3blocks.nix
     ./nvim
   ];
 }

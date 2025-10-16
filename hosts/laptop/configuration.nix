@@ -159,6 +159,7 @@
       extraPackages = with pkgs; [
         rofi
         i3status
+        i3blocks
       ];
     };
     xrandrHeads = [

@@ -47,6 +47,7 @@ in
       bars = [
         {
           trayOutput = "primary";
+          #statusCommand = "${pkgs.i3blocks}/bin/i3blocks -c ${config.xdg.configHome}/i3blocks/bottom";
           statusCommand = "${pkgs.writeScript "i3status-timer-wrapper" ''
             #!${pkgs.bash}/bin/bash
             i3status | while :
