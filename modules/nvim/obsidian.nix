@@ -5,7 +5,7 @@
 
     settings = {
       legacy_commands = false;
-      disable_frontmatter = true;
+      frontmatter.enable = false;
       notes_subdir = "2 Inbox";
       new_notes_location = "notes_subdir";
 
