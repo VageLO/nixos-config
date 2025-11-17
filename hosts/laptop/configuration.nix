@@ -198,7 +198,7 @@
     gnumake
     tmux
     ripgrep
-    alfa
+    bsparse
   ];
 
   # Fonts

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bsmmex.nix
     #./blocky.nix
     #./grafana.nix
     #./i2p.nix

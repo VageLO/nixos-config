@@ -14,14 +14,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    alfa = {
-      url = "github:VageLO/pdf-parse";
+    bsparse = {
+      url = "github:VageLO/bsparse";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #emacs-overlay = {
-    #  url = "github:nix-community/emacs-overlay";
-    #};
+    bsmmex = {
+      url = "github:VageLO/bsmmex";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {self, nixpkgs, ...}@inputs:
@@ -33,9 +34,9 @@
         config = { allowUnfree = true; };
         overlays = [
           (final: prev: {
-            alfa = inputs.alfa.packages.${system}.default;
+            bsparse = inputs.bsparse.packages.${system}.default;
+            bsmmex = inputs.bsmmex.packages.${system}.default;
           })
-          #inputs.emacs-overlay.overlay
         ];
         inherit system;
       };
