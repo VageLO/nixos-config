@@ -9,11 +9,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765888119,
-        "narHash": "sha256-JX9wxzv6VogOkvAi0zMpebvM0zzzQ2z9eTA0FZO6AW8=",
+        "lastModified": 1765889478,
+        "narHash": "sha256-tUKD3WhO7fHAcffhcKkSZy75UkPifZje2mzmpthHy40=",
         "owner": "VageLO",
         "repo": "bsmmex",
-        "rev": "33df9f884e32571a0b1fabcf88126673f4b7774e",
+        "rev": "d5059cf7533821570fe5c3364fe72c9714aaf112",
         "type": "github"
       },
       "original": {
