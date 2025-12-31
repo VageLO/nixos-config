@@ -86,7 +86,7 @@
   services.usbmuxd.enable = true;
 
   virtualisation.docker = {
-    enable = true;
+    enable = false;
     rootless = {
       enable = true;
       setSocketVariable = true;
@@ -94,6 +94,11 @@
     daemon.settings = {
       data-root = "/home/vagelo/docker";
     };
+  };
+
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.ip_forward" = 1;
   };
 
   # Bluetooth
@@ -176,6 +181,7 @@
     extraGroups = [ "networkmanager" "wheel" "libvirtd"];
     shell = pkgs.zsh;
     useDefaultShell = true;
+    linger = true;
   };
 
   xdg.mime.defaultApplications = {
