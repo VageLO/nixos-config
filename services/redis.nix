@@ -1,6 +1,5 @@
 {
   services.redis = {
-    enable = true;
     servers = {
       "" = {
         enable = true;
