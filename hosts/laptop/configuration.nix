@@ -115,6 +115,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
