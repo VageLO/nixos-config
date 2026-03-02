@@ -23,7 +23,6 @@
   };
 
   home.packages = with pkgs; [
-    cyberchef
     fff
     starship
     ff2mpv-rust

@@ -19,6 +19,7 @@
     ./zsh.nix
     ./starship.nix
     #./i3blocks.nix
+    ./tools.nix
     ./nvim
   ];
 }
