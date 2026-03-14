@@ -5,9 +5,9 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initContent = ''
-      bindkey "''${key[Up]}" up-line-or-search
-    '';
+    #initContent = ''
+    #  bindkey "''${key[Up]}" up-line-or-search
+    #'';
 
     shellAliases = {
       v = "nvim";
@@ -15,7 +15,7 @@
       lg = "lazygit";
       cl = "clear";
       ct = "rm -rf ~/.local/share/Trash";
-      ll = "fff";
+      ll = "yazi";
       hm = "home-manager switch --flake $DOTFILES/#vagelo@lp";
       nm = "sudo nixos-rebuild switch --flake $DOTFILES";
     };

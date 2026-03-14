@@ -2,7 +2,7 @@
 
 {
   programs.yazi = {
-    enable = false;
+    enable = true;
     settings = {
       mgr = {
         sort_by = "mtime";

@@ -194,6 +194,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    gns3-gui
     docker
     docker-compose
     libimobiledevice

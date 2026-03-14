@@ -23,7 +23,6 @@
   };
 
   home.packages = with pkgs; [
-    fff
     starship
     ff2mpv-rust
     qutebrowser
@@ -53,7 +52,6 @@
     unzip
     curl
     kitty
-    #yazi
     cargo
     pkg-config
     gtk3
