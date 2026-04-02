@@ -4,7 +4,7 @@
     binutils
     nasm
     gdb
-    wireshark-qt
+    wireshark
     sleuthkit
     cyberchef
   ];

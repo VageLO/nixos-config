@@ -2,6 +2,7 @@
 
 {
   programs.yazi = {
+    shellWrapperName = "y";
     enable = true;
     settings = {
       mgr = {

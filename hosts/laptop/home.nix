@@ -25,7 +25,6 @@
   home.packages = with pkgs; [
     starship
     ff2mpv-rust
-    qutebrowser
     pandoc
     autorandr
     quick-lookup
@@ -55,7 +54,7 @@
     cargo
     pkg-config
     gtk3
-    wxGTK32
+    wxwidgets_3_2
     scrot
   ];
 

@@ -20,6 +20,7 @@
     ./starship.nix
     #./i3blocks.nix
     ./tools.nix
+    ./firefox.nix
     ./nvim
   ];
 }

@@ -3,6 +3,7 @@
 {
   services.grafana = {
     enable = true;
+    settings.security.secret_key = "SW2YcwTIb9zpOOhoPsMm";
 
     declarativePlugins = with pkgs.grafanaPlugins; [
       (grafana-piechart-panel.overrideAttrs (_: {
