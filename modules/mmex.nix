@@ -18,7 +18,7 @@ let
         git
         appstream
         lsb-release
-        wxGTK32
+        wxwidgets_3_2
         curl
         pkg-config
         gtk3
@@ -29,7 +29,7 @@ let
 
       buildPhase = ''
         echo "Building mmex..."
-        cmake .. 
+        cmake ..
       '';
 
       installPhase = ''

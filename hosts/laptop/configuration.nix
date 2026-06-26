@@ -31,6 +31,8 @@
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
+  services.tailscale.enable = false;
+
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -65,15 +67,15 @@
   };
 
   # Firewall
-  networking.firewall = {
-    enable = true;
-    interfaces = {
-      "wlp4s0" = {
-        allowedTCPPorts = [ 8096 8000 ];
-        #allowedUDPPorts = [ 53 ];
-      };
-    };
-  };
+  #networking.firewall = {
+  #  enable = true;
+  #  interfaces = {
+  #    "wlp4s0" = {
+  #      allowedTCPPorts = [ 8096 8000 ];
+  #      #allowedUDPPorts = [ 53 ];
+  #    };
+  #  };
+  #};
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -96,10 +98,10 @@
     };
   };
 
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_forward" = 1;
-    "net.ipv6.ip_forward" = 1;
-  };
+  #boot.kernel.sysctl = {
+  #  "net.ipv4.ip_forward" = 1;
+  #  "net.ipv6.ip_forward" = 1;
+  #};
 
   # Bluetooth
   hardware.bluetooth.enable = true;
@@ -114,8 +116,13 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   # Enable networking
-  networking.networkmanager.enable = true;
-  networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8" ];
+  networking.networkmanager = {
+    enable = true;
+    insertNameservers = [ "1.1.1.1" "8.8.8.8" ];
+    settings = {
+      main.no-auto-default = "*";
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -185,16 +192,8 @@
     linger = true;
   };
 
-  xdg.mime.defaultApplications = {
-    "text/html" = "org.qutebrowser.qutebrowser.desktop";
-    "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
-    "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
-    "x-scheme-handler/about" = "org.qutebrowser.qutebrowser.desktop";
-    "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
-  };
-
   environment.systemPackages = with pkgs; [
-    gns3-gui
+    gns3-server
     docker
     docker-compose
     libimobiledevice

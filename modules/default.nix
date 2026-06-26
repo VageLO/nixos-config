@@ -21,6 +21,7 @@
     #./i3blocks.nix
     ./tools.nix
     ./firefox.nix
+    ./direnv.nix
     ./nvim
   ];
 }

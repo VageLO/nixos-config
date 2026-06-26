@@ -3,6 +3,7 @@
     plugins.lsp = {
       enable = true;
       servers = {
+        ols.enable = true;
         lua_ls.enable = true;
         gopls.enable = true;
         nil_ls.enable = true;

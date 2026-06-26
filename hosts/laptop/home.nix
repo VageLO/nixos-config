@@ -23,6 +23,8 @@
   };
 
   home.packages = with pkgs; [
+    gns3-gui
+    burpsuite
     starship
     ff2mpv-rust
     pandoc
