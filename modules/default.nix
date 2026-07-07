@@ -2,7 +2,7 @@
   imports = [
     #./bash.nix
     ./mpv.nix
-    ./mmex.nix
+    #./mmex.nix
     ./yazi.nix
     ./i3.nix
     ./i3status.nix
@@ -11,7 +11,7 @@
     ./anki-service.nix
     ./tmux.nix
     ./kitty.nix
-    ./gtk.nix
+    #./gtk.nix
     ./tmux-sessionizer.nix
     #./mixxx.nix
     ./newsboat.nix

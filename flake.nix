@@ -23,6 +23,10 @@
       url = "github:VageLO/bsmmex";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mmex_1_9_2 = {
+      url = "github:nixos/nixpkgs/3d46470bb3030020f7e1361f33514854f5bfa86d";
+    };
   };
 
   outputs = {self, nixpkgs, ...}@inputs:
@@ -30,12 +34,18 @@
       inherit (self) outputs;
       system = "x86_64-linux";
 
+      pkgs-mmex-repo = import inputs.mmex_1_9_2 {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
       pkgs = import nixpkgs {
         config = { allowUnfree = true; };
         overlays = [
           (final: prev: {
             bsparse = inputs.bsparse.packages.${system}.default;
             bsmmex = inputs.bsmmex.packages.${system}.default;
+            mmex = pkgs-mmex-repo.mmex;
           })
         ];
         inherit system;

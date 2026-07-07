@@ -171,6 +171,22 @@
         "type": "github"
       }
     },
+    "mmex_1_9_2": {
+      "locked": {
+        "lastModified": 1782545840,
+        "narHash": "sha256-PkBPmP5ofNtunCU7/tfn6wi9OLlzFGcHAqqmY+/mwUI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3d46470bb3030020f7e1361f33514854f5bfa86d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3d46470bb3030020f7e1361f33514854f5bfa86d",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1774709303,
@@ -214,6 +230,7 @@
         "bsmmex": "bsmmex",
         "bsparse": "bsparse",
         "home-manager": "home-manager",
+        "mmex_1_9_2": "mmex_1_9_2",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim"
       }

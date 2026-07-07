@@ -23,6 +23,7 @@
   };
 
   home.packages = with pkgs; [
+    mmex
     gns3-gui
     burpsuite
     starship

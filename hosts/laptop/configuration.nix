@@ -31,7 +31,7 @@
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
-  services.tailscale.enable = false;
+  services.tailscale.enable = true;
 
   programs.nix-ld = {
     enable = true;
@@ -52,11 +52,6 @@
     dataDir = "/home/vagelo/.syncthing";
     configDir = "/home/vagelo/.syncthing/config";
   };
-
-  #services.emacs = {
-  #  enable = true;
-  #  package = pkgs.emacs-git;
-  #};
 
   # Disable suspend on idle
   services.logind.settings = {
