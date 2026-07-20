@@ -31,8 +31,6 @@
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
-  services.tailscale.enable = true;
-
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -43,6 +41,8 @@
   };
 
   programs.zsh.enable = true;
+
+  services.netbird.enable = true;
 
   services.syncthing = {
     enable = true;
@@ -60,17 +60,6 @@
       IdleActionSec = "0min";
     };
   };
-
-  # Firewall
-  #networking.firewall = {
-  #  enable = true;
-  #  interfaces = {
-  #    "wlp4s0" = {
-  #      allowedTCPPorts = [ 8096 8000 ];
-  #      #allowedUDPPorts = [ 53 ];
-  #    };
-  #  };
-  #};
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -93,11 +82,6 @@
     };
   };
 
-  #boot.kernel.sysctl = {
-  #  "net.ipv4.ip_forward" = 1;
-  #  "net.ipv6.ip_forward" = 1;
-  #};
-
   # Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -108,7 +92,7 @@
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
 
   # Enable networking
   networking.networkmanager = {
@@ -218,5 +202,5 @@
     };
   };
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "26.05";
 }

@@ -7,7 +7,7 @@
   home.username = "vagelo";
   home.homeDirectory = "/home/vagelo";
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
 
   programs.git = {
     enable = true;
@@ -23,6 +23,7 @@
   };
 
   home.packages = with pkgs; [
+    brave
     mmex
     gns3-gui
     burpsuite
@@ -63,6 +64,7 @@
 
   home.file = {
     ".config/google-chrome/NativeMessagingHosts/ff2mpv.json".source = "${pkgs.ff2mpv-rust}/etc/opt/chrome/native-messaging-hosts/ff2mpv.json";
+    ".config/BraveSoftware/Brave-Browser/NativeMessagingHosts/ff2mpv.json".source = "${pkgs.ff2mpv-rust}/etc/opt/chrome/native-messaging-hosts/ff2mpv.json";
     ".config/rofi" = {
       recursive = true;
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/home-manager/dotfiles/rofi";

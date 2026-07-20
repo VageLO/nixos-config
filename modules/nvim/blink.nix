@@ -2,7 +2,6 @@
   programs.nixvim = {
     plugins = {
       blink-emoji.enable = true;
-      blink-cmp-spell.enable = true;
       friendly-snippets.enable = true;
 
       blink-cmp = {
@@ -30,13 +29,9 @@
           sources = {
             default = [
               "lsp"
-              #"obsidian"
-              #"obsidian_new"
-              #"obsidian_tags"
               "path"
               "snippets"
               "emoji"
-              "spell"
             ];
 
             providers = {
@@ -55,10 +50,6 @@
               emoji = {
                 name = "Emoji";
                 module = "blink-emoji";
-              };
-              spell = {
-                name = "Spell";
-                module = "blink-cmp-spell";
               };
             };
           };
