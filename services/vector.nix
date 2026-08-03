@@ -14,14 +14,14 @@
         key = "vector";
       };
 
-      sources.docker_logs = {
-        type = "docker_logs";
-        docker_host = "/run/user/1000/docker.sock";
-      };
+      #sources.docker_logs = {
+      #  type = "docker_logs";
+      #  docker_host = "/run/user/1000/docker.sock";
+      #};
 
       sinks.victorialogs = {
         type = "http";
-        inputs = [ "journald" "redis" "docker_logs"];
+        inputs = [ "journald" "redis"];
         uri = "http://localhost:9428/insert/jsonline?_stream_fields=host,container_name,source_type&_msg_field=message&_time_field=timestamp";
         encoding.codec = "json";
         compression = "gzip";
