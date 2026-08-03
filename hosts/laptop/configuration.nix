@@ -42,7 +42,7 @@
 
   programs.zsh.enable = true;
 
-  services.netbird.enable = true;
+  services.tailscale.enable = true;
 
   services.syncthing = {
     enable = true;
