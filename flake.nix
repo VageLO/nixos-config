@@ -25,7 +25,7 @@
     };
 
     mmex_1_9_2 = {
-      url = "github:nixos/nixpkgs/3d46470bb3030020f7e1361f33514854f5bfa86d";
+      url = "github:nixos/nixpkgs/a5cbcfe954791221bfffe2307f7d1a1bf61a871e";
     };
   };
 

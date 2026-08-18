@@ -42,7 +42,7 @@
 
   programs.zsh.enable = true;
 
-  services.tailscale.enable = true;
+  services.tailscale.enable = false;
 
   services.syncthing = {
     enable = true;
