@@ -172,6 +172,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    restic
+    rclone
     gns3-server
     docker
     docker-compose
