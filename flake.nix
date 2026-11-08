@@ -40,7 +40,12 @@
       };
 
       pkgs = import nixpkgs {
-        config = { allowUnfree = true; };
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "firefox-esr-140-bin-unwrapped-140.17.0esr"
+          ];
+        };
         overlays = [
           (final: prev: {
             bsparse = inputs.bsparse.packages.${system}.default;

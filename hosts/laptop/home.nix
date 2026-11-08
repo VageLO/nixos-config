@@ -23,7 +23,6 @@
   };
 
   home.packages = with pkgs; [
-    brave
     mmex
     gns3-gui
     burpsuite
